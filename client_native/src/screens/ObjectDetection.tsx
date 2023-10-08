@@ -117,9 +117,6 @@ const ObjectDetection = () => {
             />
             <ScrollView>
                 <View style={styles.container}>
-                    <Text style={styles.title}>
-                        Push to detect
-                    </Text>
                     {imageUri && (
                         <Image
                             source={{ uri: imageUri }}

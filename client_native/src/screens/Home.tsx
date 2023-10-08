@@ -57,16 +57,6 @@ export default function ({
                 marginTop: 10,
               }}
             />
-            <Button
-              status="danger"
-              text="Logout"
-              onPress={() => {
-                signOut(auth);
-              }}
-              style={{
-                marginTop: 10,
-              }}
-            />
           </SectionContent>
         </Section>
       </View>
