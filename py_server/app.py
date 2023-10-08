@@ -7,8 +7,8 @@ from typing import List
 # from pymongo import (InsertOne)
 # from bson import ObjectId
 
-password = open("password.txt", "r").read()
-
+# password = open("password.txt", "r").read()
+password = "BEE"
 # Connect to mongodb
 uri = f"mongodb+srv://BEE:{password}@cluster0.scwq00d.mongodb.net/?retryWrites=true&w=majority"
 client = MongoClient(uri, server_api=ServerApi('1'))
