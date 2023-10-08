@@ -1,8 +1,34 @@
+// import React, { useState } from "react";
+// import {
+//   View,
+//   Linking,
+//   Text,
+//   TouchableOpacity,
+//   Image,
+//   StyleSheet,
+//   ScrollView, // Import ScrollView
+// } from "react-native";
+// import * as ImagePicker from "expo-image-picker";
+// import * as FileSystem from "expo-file-system";
+// import axios from "axios";
+// import { Ionicons } from "@expo/vector-icons";
+// import {
+//   Layout,
+//   Button,
+//   TopNav,
+//   Section,
+//   SectionContent,
+//   useTheme,
+//   themeColor,
+// } from "react-native-rapi-ui";
+
+
 import React, { useState } from "react";
-import { View, Linking, Text, TouchableOpacity, Image, StyleSheet } from "react-native";
+import { View, Linking, Text, TouchableOpacity, Image, StyleSheet, ScrollView } from "react-native";
 import * as ImagePicker from "expo-image-picker";
 import * as FileSystem from "expo-file-system";
 import axios from "axios";
+import { Ionicons } from "@expo/vector-icons";
 import {
     Layout,
     Button,
@@ -71,52 +97,73 @@ const ObjectDetection = () => {
     };
 
     return (
-        <View style={styles.container}>
-            <Text style={styles.title}>
-                Push to detect
-            </Text>
-            {imageUri && (
-                <Image
-                    source={{ uri: imageUri }}
-                    style={{ width: 300, height: 300 }}
+        <Layout>
+            <TopNav
+                middleContent="Dashboard"
+                rightContent={
+                <Ionicons
+                    name={isDarkmode ? "sunny" : "moon"}
+                    size={20}
+                    color={isDarkmode ? themeColor.white100 : themeColor.dark}
                 />
-            )}
-            <TouchableOpacity
-                onPress={pickImage}
-                style={styles.button}                        
-            >
-                <Text style={styles.text}>
-                    Choose...
-                </Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-                onPress={analyzeImage}
-                style={styles.button}                        
-            >
-                <Text style={styles.text}>
-                    Analyze
-                </Text>
-            </TouchableOpacity>
-            {
-                labels.length > 0 && (
-                    <View>
-                        <Text style={styles.label}>
-                            Labels:
+                }
+                rightAction={() => {
+                if (isDarkmode) {
+                    setTheme("light");
+                } else {
+                    setTheme("dark");
+                }
+                }}
+            />
+            <ScrollView>
+                <View style={styles.container}>
+                    <Text style={styles.title}>
+                        Push to detect
+                    </Text>
+                    {imageUri && (
+                        <Image
+                            source={{ uri: imageUri }}
+                            style={{ width: 300, height: 300 }}
+                        />
+                    )}
+                    <TouchableOpacity
+                        onPress={pickImage}
+                        style={styles.button}                        
+                    >
+                        <Text style={styles.text}>
+                            Choose...
                         </Text>
-                        {
-                            labels.map((label) => (
-                                <Text
-                                    key={label.mid}
-                                    style={styles.outputtext}
-                                >
-                                    {label.description}
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        onPress={analyzeImage}
+                        style={styles.button}                        
+                    >
+                        <Text style={styles.text}>
+                            Analyze
+                        </Text>
+                    </TouchableOpacity>
+                    {
+                        labels.length > 0 && (
+                            <View>
+                                <Text style={styles.label}>
+                                    Labels:
                                 </Text>
-                            ))
-                        }
-                    </View>
-                )
-            }
-        </View>
+                                {
+                                    labels.map((label) => (
+                                        <Text
+                                            key={label.mid}
+                                            style={styles.outputtext}
+                                        >
+                                            {label.description}
+                                        </Text>
+                                    ))
+                                }
+                            </View>
+                        )
+                    }
+                </View>
+            </ScrollView>
+        </Layout>
     )
 }
 
