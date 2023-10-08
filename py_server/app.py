@@ -88,10 +88,10 @@ class DashBoard():
         self.boarditems = items
         pass
 
-    @staticmethod
-    def processDashboard(board : DashBoard):
+    
+    def processDashboard(self):
         res  = []
-        for item in board.boarditems:
+        for item in self.boarditems:
             res.append(item.__dict__)
         return res
 
