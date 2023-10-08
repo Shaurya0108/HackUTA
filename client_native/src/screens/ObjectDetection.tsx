@@ -1,13 +1,23 @@
 import React, { useState } from "react";
-import { View, Linking, Button, Text, TouchableOpacity, Image, StyleSheet } from "react-native";
+import { View, Linking, Text, TouchableOpacity, Image, StyleSheet } from "react-native";
 import * as ImagePicker from "expo-image-picker";
 import * as FileSystem from "expo-file-system";
 import axios from "axios";
+import {
+    Layout,
+    Button,
+    TopNav,
+    Section,
+    SectionContent,
+    useTheme,
+    themeColor,
+  } from "react-native-rapi-ui";
 
 
 const ObjectDetection = () => {
     const [imageUri, setImageUri] = useState(null);
     const [labels, setLabels] = useState([]);
+    const { isDarkmode, setTheme } = useTheme();
 
     const pickImage = async () => {
         try {
