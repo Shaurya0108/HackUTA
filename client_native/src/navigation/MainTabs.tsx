@@ -6,6 +6,7 @@ import TabBarIcon from "../components/utils/TabBarIcon";
 import TabBarText from "../components/utils/TabBarText";
 
 import Home from "../screens/Home";
+import ObjectDetect from "../screens/ObjectDetection";
 import About from "../screens/About";
 import Profile from "../screens/Profile";
 
@@ -37,7 +38,7 @@ const MainTabs = () => {
       />
       <Tabs.Screen
         name="Profile"
-        component={Profile}
+        component={ObjectDetect}
         options={{
           tabBarLabel: ({ focused }) => (
             <TabBarText focused={focused} title="Profile" />

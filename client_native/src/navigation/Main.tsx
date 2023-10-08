@@ -6,6 +6,7 @@ import TabBarIcon from "../components/utils/BarIcon";
 import TabBarText from "../components/utils/BarText";
 
 import Home from "../screens/Home";
+import ObjectDetect from "../screens/ObjectDetection";
 import About from "../screens/RecList";
 
 const Tabs = createBottomTabNavigator();
