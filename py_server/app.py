@@ -2,10 +2,10 @@ from flask import (Flask, request)
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
 from enum import Enum
-from typing import List, Self
-from uuid import uuid4
-from pymongo import (InsertOne)
-from bson import ObjectId
+from typing import List
+# from uuid import uuid4
+# from pymongo import (InsertOne)
+# from bson import ObjectId
 
 password = open("password.txt", "r").read()
 
