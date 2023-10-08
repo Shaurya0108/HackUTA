@@ -88,13 +88,29 @@ class DashBoard():
         self.boarditems = items
         pass
 
-    
     def processDashboard(self):
         res  = []
         for item in self.boarditems:
             res.append(item.__dict__)
         return res
-
+    
+    @app.route("/user/add_dashboard_item", methods=["POST"])
+    def add_dashboard_item():
+        try:
+            label_description = request.json.get("labelDescription")
+            user_name = "Jose"
+            user = users.find_one({"name": user_name})
+            if user:
+                new_dashboard_item = DashBoardItem(name=label_description, due="Some due date")
+                user_dashboard = DashBoard(items=user.get("dashboard", []))
+                user_dashboard.boarditems.append(new_dashboard_item)
+                updated_dashboard = user_dashboard.processDashboard()
+                users.update_one({"name": user_name}, {"$set": {"dashboard": updated_dashboard}})
+                return "Dashboard item added successfully"
+            else:
+                return "User not found"
+        except Exception as e:
+            return str(e)
 
 class Car(object):
     def __init__(self, dictionary:object, make : Make = None, dashboard : DashBoard = None) -> None:

@@ -1,28 +1,3 @@
-// import React, { useState } from "react";
-// import {
-//   View,
-//   Linking,
-//   Text,
-//   TouchableOpacity,
-//   Image,
-//   StyleSheet,
-//   ScrollView, // Import ScrollView
-// } from "react-native";
-// import * as ImagePicker from "expo-image-picker";
-// import * as FileSystem from "expo-file-system";
-// import axios from "axios";
-// import { Ionicons } from "@expo/vector-icons";
-// import {
-//   Layout,
-//   Button,
-//   TopNav,
-//   Section,
-//   SectionContent,
-//   useTheme,
-//   themeColor,
-// } from "react-native-rapi-ui";
-
-
 import React, { useState } from "react";
 import { View, Linking, Text, TouchableOpacity, Image, StyleSheet, ScrollView } from "react-native";
 import * as ImagePicker from "expo-image-picker";
@@ -151,7 +126,9 @@ const ObjectDetection = () => {
                                             key={label.mid}
                                             style={styles.outputtext}
                                         >
+                                            
                                             {label.description}
+
                                         </Text>
                                     ))
                                 }
