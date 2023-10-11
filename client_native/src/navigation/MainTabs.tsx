@@ -37,14 +37,14 @@ const MainTabs = () => {
         }}
       />
       <Tabs.Screen
-        name="Profile"
+        name="Dashboard"
         component={ObjectDetect}
         options={{
           tabBarLabel: ({ focused }) => (
-            <TabBarText focused={focused} title="Profile" />
+            <TabBarText focused={focused} title="Dashboard" />
           ),
           tabBarIcon: ({ focused }) => (
-            <TabBarIcon focused={focused} icon={"person"} />
+            <TabBarIcon focused={focused} icon={"car"} />
           ),
         }}
       />

@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Linking } from "react-native";
+import { View, Linking, Image } from "react-native";
 import { MainStackParamList } from "../types/navigation";
 import { getAuth, signOut } from "firebase/auth";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
@@ -20,7 +20,7 @@ export default function ({
 }: NativeStackScreenProps<MainStackParamList, "MainTabs">) {
   const { isDarkmode, setTheme } = useTheme();
   const auth = getAuth();
-  
+
   return (
     <Layout>
       <View
@@ -30,6 +30,17 @@ export default function ({
           justifyContent: "center",
         }}
       >
+        {/* Add the Image component with your image */}
+        <Image
+          source={require('../../assets/images/camry2.jpg')} // Replace with the correct path to your image
+          style={{
+            position: 'absolute', // Position the image
+            top: 0, // Position it at the top
+            width: '100%', // Make it take the full width
+            height: 200, // Adjust the height as needed
+          }}
+        />
+
         {/* First Card/Box */}
         <View
           style={{
@@ -47,28 +58,28 @@ export default function ({
             marginBottom: 50, // Add margin to separate the cards
           }}
         >
-            <Text
-              style={{
-                fontSize: 26,
-                fontWeight: "bold",
-                marginBottom: 10,
-                marginHorizontal: 110,
-                alignSelf: "flex-start", // Move the text to the left
-              }}
-            >
-              Toyota
-            </Text>
-            <Text
-              style={{
-                fontSize: 26,
-                fontWeight: "bold",
-                marginBottom: 10,
-                marginHorizontal: 110,
-                alignSelf: "flex-start", // Move the text to the left
-              }}
-            >
-               Camry
-            </Text>
+          <Text
+            style={{
+              fontSize: 26,
+              fontWeight: "bold",
+              marginBottom: 10,
+              marginHorizontal: 110,
+              alignSelf: "flex-start", // Move the text to the left
+            }}
+          >
+            Toyota
+          </Text>
+          <Text
+            style={{
+              fontSize: 26,
+              fontWeight: "bold",
+              marginBottom: 10,
+              marginHorizontal: 110,
+              alignSelf: "flex-start", // Move the text to the left
+            }}
+          >
+            Camry
+          </Text>
         </View>
         
         {/* Second Card/Box */}

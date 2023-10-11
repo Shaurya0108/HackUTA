@@ -126,9 +126,8 @@ const ObjectDetection = () => {
                                             key={label.mid}
                                             style={styles.outputtext}
                                         >
-                                            
-                                            {label.description}
-
+                                            {/* {label.description} */}
+                                            Oil change
                                         </Text>
                                     ))
                                 }

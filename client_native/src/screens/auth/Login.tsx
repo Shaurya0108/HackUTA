@@ -48,23 +48,7 @@ export default function ({
             flexGrow: 1,
           }}
         >
-          <View
-            style={{
-              flex: 1,
-              justifyContent: "center",
-              alignItems: "center",
-              backgroundColor: isDarkmode ? "#17171E" : themeColor.white100,
-            }}
-          >
-            <Image
-              resizeMode="contain"
-              style={{
-                height: 220,
-                width: 220,
-              }}
-              source={require("../../../assets/images/login.png")}
-            />
-          </View>
+          
           <View
             style={{
               flex: 3,
